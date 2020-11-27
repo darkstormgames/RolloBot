@@ -111,7 +111,6 @@ namespace RolloBot.Tools
         {
             if (!isRunning)
             {
-                
                 if (!listTools.HasItems || listTools.SelectedItem == null)
                 {
                     this.AddLog(LogType.Warning, "No tool selected!");

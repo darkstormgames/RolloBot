@@ -16,11 +16,13 @@ namespace RolloBot.Tools.MK8DX
         public override string Name => "AutoTable";
         public override string DisplayName => "Auto Table";
         public override string ToolTip => "";
+        public override string RunButtonText => "Create Table";
+        public override string StopButtonText => "Cancel Creation";
         public override bool NeedsVideo => true;
         public override bool NeedsSerial => false;
         public override bool NeedsXInput => false;
-        public override CaptureExecutionSpeed CaptureExecutionSpeed => CaptureExecutionSpeed.ReallyFast;
-        public override ExecutionTrigger ExecutionTrigger => ExecutionTrigger.ScreenshotTaken;
+        public override CaptureExecutionSpeed CaptureExecutionSpeed => CaptureExecutionSpeed.Once;
+        public override ExecutionTrigger ExecutionTrigger => ExecutionTrigger.None;
         public override ToolConfigBase Config => null;
 
         public override void Execute()

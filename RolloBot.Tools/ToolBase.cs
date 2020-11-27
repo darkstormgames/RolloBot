@@ -38,6 +38,8 @@ namespace RolloBot.Tools
         public abstract string Name { get; }
         public abstract string DisplayName { get; }
         public abstract string ToolTip { get; }
+        public abstract string RunButtonText { get; }
+        public abstract string StopButtonText { get; }
 
         public abstract bool NeedsVideo { get; }
         public abstract bool NeedsSerial { get; }

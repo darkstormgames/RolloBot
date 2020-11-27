@@ -21,6 +21,8 @@ namespace RolloBot.Tools.MK8DX.AutoToad
         public override string Name => "AutoToad";
         public override string DisplayName => "Automatic ToadV2 Bot";
         public override string ToolTip => "Don´t use this with your main account, as there is a high chance the account will get banned eventually.";
+        public override string RunButtonText => "Run AutoToad";
+        public override string StopButtonText => "Stop AutoToad";
         public override bool NeedsVideo => true;
         public override bool NeedsSerial => false;
         public override bool NeedsXInput => false;

@@ -35,7 +35,11 @@ namespace RolloBot.Tools
         /// <summary>
         /// Runs every Frame
         /// </summary>
-        RealTime
+        RealTime,
+        /// <summary>
+        /// Executes only once, then cancels the tool
+        /// </summary>
+        Once
     }
 
     public enum ExecutionTrigger
