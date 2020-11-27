@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="RolloBot.Tools.ToolWindowBase"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:RolloBot.Tools"
+        mc:Ignorable="d" MinHeight="475" MinWidth="605"
+        Height="480" Width="1150">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="650"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="55" />
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Content="Functions" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ListBox Grid.Row="1" Name="listTools" FontSize="19" DisplayMemberPath="DisplayName" Width="250" Height="auto" SelectionChanged="ListTools_SelectionChanged" />
+            <Button Grid.Row="2" Name="btnRun" Content="Run Selected" FontSize="19" Height="55" Width="250" Click="btnRun_Click"/>
+            <!-- Width="125" -->
+
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Content="Log" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Border BorderBrush="Black" BorderThickness="5" Grid.Row="1">
+                <ListView Name="lvLog" Grid.Column="1" Margin="5" Grid.Row="1">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn x:Name="typeColumn" Header="Type" Width="auto" DisplayMemberBinding="{Binding LogType}" />
+                            <GridViewColumn x:Name="messageColumn" Header="Message" Width="auto" DisplayMemberBinding="{Binding Message}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Content="Options" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="1" Name="optionsPanel">
+                
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="RolloBot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RolloBot"
+        xmlns:main="clr-namespace:RolloBot.View.Main"
+        mc:Ignorable="d"
+        Title="RolloBot" Height="890" Width="1915"
+        Background="DimGray" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Initialized="window_Initialized" Closing="window_Closing">
+
+    <Grid Name="mainGrid">
+        <main:MainView x:Name="MainView" />
+    </Grid>
+</Window>

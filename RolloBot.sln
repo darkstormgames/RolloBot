@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1169
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RolloBot", "RolloBot\RolloBot.csproj", "{1616B476-3691-409A-81E7-1F3EC828E43D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RolloBot.Client", "RolloBot.Client\RolloBot.Client.csproj", "{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RolloBot.Tools", "RolloBot.Tools\RolloBot.Tools.csproj", "{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1616B476-3691-409A-81E7-1F3EC828E43D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1616B476-3691-409A-81E7-1F3EC828E43D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1616B476-3691-409A-81E7-1F3EC828E43D}.Debug|x64.ActiveCfg = Debug|x64
+		{1616B476-3691-409A-81E7-1F3EC828E43D}.Debug|x64.Build.0 = Debug|x64
+		{1616B476-3691-409A-81E7-1F3EC828E43D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1616B476-3691-409A-81E7-1F3EC828E43D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1616B476-3691-409A-81E7-1F3EC828E43D}.Release|x64.ActiveCfg = Release|x64
+		{1616B476-3691-409A-81E7-1F3EC828E43D}.Release|x64.Build.0 = Release|x64
+		{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}.Debug|x64.ActiveCfg = Debug|x64
+		{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}.Debug|x64.Build.0 = Debug|x64
+		{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}.Release|x64.ActiveCfg = Release|x64
+		{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}.Release|x64.Build.0 = Release|x64
+		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Debug|x64.ActiveCfg = Debug|x64
+		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Debug|x64.Build.0 = Debug|x64
+		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Release|x64.ActiveCfg = Release|x64
+		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6267C260-F3FC-4285-B765-91AC691880C6}
+	EndGlobalSection
+EndGlobal

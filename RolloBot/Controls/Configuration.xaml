@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="RolloBot.Controls.Configuration"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RolloBot.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="378" d:DesignWidth="437">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0">
+            <TabItem Header="Devices">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120" />
+                        <RowDefinition Height="180" />
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="Video Capture Settings" Grid.Row="0">
+                        <Grid VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0">Video capture device</Label>
+                            <ComboBox Grid.Column="1" Grid.Row="0"></ComboBox>
+
+                            <Label Grid.Column="0" Grid.Row="1">Output Resolution</Label>
+                            <ComboBox Grid.Column="1" Grid.Row="1"></ComboBox>
+
+                            <Label Grid.Column="0" Grid.Row="2">Frames per second</Label>
+                            <ComboBox Grid.Column="1" Grid.Row="2"></ComboBox>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Serial Connection Settings" Grid.Row="1">
+                        <Grid VerticalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0">Default port</Label>
+                            <ComboBox Grid.Column="1" Grid.Row="0"></ComboBox>
+
+                            <Label Grid.Column="0" Grid.Row="1">Baud Rate</Label>
+                            <ComboBox Grid.Column="1" Grid.Row="1"></ComboBox>
+
+                            <Label Grid.Column="0" Grid.Row="2">Parity</Label>
+                            <ComboBox Grid.Column="1" Grid.Row="2"></ComboBox>
+
+                            <Label Grid.Column="0" Grid.Row="3">Data bit count</Label>
+                            <ComboBox Grid.Column="1" Grid.Row="3"></ComboBox>
+
+                            <Label Grid.Column="0" Grid.Row="4">Stop bit count</Label>
+                            <ComboBox Grid.Column="1" Grid.Row="4"></ComboBox>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Interface">
+                
+            </TabItem>
+        </TabControl>
+        <Button Grid.Row="1" FontSize="18">
+            OK
+        </Button>
+    </Grid>
+</UserControl>
