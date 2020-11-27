@@ -16,6 +16,8 @@
 !/packages/*/lib/*.dll
 # Include dlls if they're in the CommonReferences directory
 !*CommonReferences/*.dll
+# Include the XInput dll
+!*XInputInterface.dll
 ####################
 # VS Upgrade stuff #
 ####################
@@ -162,7 +164,7 @@ _TeamCity*
 
 # NCrunch
 _NCrunch_*
-.*crunch*.local.xml
+.*crunch*.local.xml6f
 
 # MightyMoose
 *.mm.*
