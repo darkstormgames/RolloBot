@@ -9,5 +9,6 @@ namespace RolloBot.Client.Communication.XInput
     public interface IXInputOwner
     {
         XInputPoller XInputPoller { get; }
+        bool IsControllerEnabled { get; set; }
     }
 }

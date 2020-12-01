@@ -67,6 +67,9 @@ namespace RolloBot.Client.Communication.Capture
             {
                 onNewFrame(new CaptureFrameEventArgs(eventArgs.Frame));
 
+                if (FramesOutput % 5 == 0)
+                    GC.Collect();
+
                 if (FramesOutput % (60 / saveEveryXFrame) == 0)
                     this.SourceResolution = string.Format("{0}x{1}", eventArgs.Frame.Width, eventArgs.Frame.Height);
                 
@@ -76,6 +79,11 @@ namespace RolloBot.Client.Communication.Capture
             FramesReceived++;
         }
         #endregion
+
+        public void Start()
+        {
+            device.Start();
+        }
 
         public void Stop()
         {

@@ -4,12 +4,138 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RolloBot"
-        xmlns:main="clr-namespace:RolloBot.View.Main"
+        xmlns:main="clr-namespace:RolloBot.View"
+        xmlns:helper="clr-namespace:RolloBot.Helper"
+        xmlns:styles="clr-namespace:RolloBot.Styles"
         mc:Ignorable="d"
-        Title="RolloBot" Height="890" Width="1915"
-        Background="DimGray" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Initialized="window_Initialized" Closing="window_Closing">
+        Loaded="window_Loaded"
+        Closing="window_Closing"
+        StateChanged="Window_StateChanged"
+        Title="RolloBot" Height="969" Width="1900" Background="Transparent"
+        MinWidth="1280" MinHeight="650"
+        BorderBrush="Gainsboro" BorderThickness="0" WindowStyle="SingleBorderWindow"
+        ResizeMode="CanResizeWithGrip" AllowsTransparency="False"
+        WindowStartupLocation="CenterScreen" WindowState="Normal">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="34" />
+    </WindowChrome.WindowChrome>
 
-    <Grid Name="mainGrid">
-        <main:MainView x:Name="MainView" />
-    </Grid>
+    <Window.Resources>
+        <ResourceDictionary>
+            <helper:CaptureStateToImageUriConverter x:Key="CaptureStateToImageUriConverter" />
+            <helper:BoolToControllerImageUriConverter x:Key="BoolToControllerImageUriConverter" />
+            <helper:BoolToSerialImageUriConverter x:Key="BoolToSerialImageUriConverter" />
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/TitleBarDictionary.xaml" />
+                <ResourceDictionary Source="/Styles/MenuSidePanelDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Border BorderBrush="Gainsboro" BorderThickness="7">
+        <Grid Background="Gainsboro">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height ="Auto"/>
+                <RowDefinition Height ="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Window chrome-->
+            <Border Grid.Row="0" BorderBrush="DarkGray" BorderThickness="1">
+                <Grid Grid.Row="0" Height="32" Background="Gainsboro">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Title button(s) -->
+                    <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Button Name="btnTitle" Content="RolloBot" Style="{StaticResource TextButtonStyle}"
+                            Click="btnTitle_Click" FontSize="17" />
+                    </StackPanel>
+
+                    <!-- Caption buttons -->
+                    <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Right" >
+                        <Button Name="btnSerial" ToolTip="Enable/Disable Serial"
+                                Content="{Binding IsSerialEnabled, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToSerialImageUriConverter}}"
+                                Style="{StaticResource ImageButtonStyle}"
+                                Click="btnSerial_Click"
+                                IsEnabled="False" />
+                        <Button Name="btnController" ToolTip="Enable/Disable XInput"
+                                Content="{Binding IsControllerEnabled, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolToControllerImageUriConverter}}"
+                                Style="{StaticResource ImageButtonStyle}"
+                                Click="btnController_Click" 
+                                IsEnabled="False" />
+                        <Button Name="btnPreview" ToolTip="Enable/Disable Capture Preview"
+                                Content="{Binding CaptureState, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CaptureStateToImageUriConverter}}" 
+                                Style="{StaticResource ImageButtonStyle}"
+                                Click="btnPreview_Click" />
+
+                        <Button x:Name="btnMinimize" Content="&#xE949;" ToolTip="Minimize"
+                                Style="{StaticResource WindowControlButtonStyle}"
+                                Click="btnMinimize_Click"/>
+                        <Button x:Name="btnRestore" Content="&#xE923;" Visibility="Collapsed" ToolTip="Restore"
+                                Style="{StaticResource WindowControlButtonStyle}" 
+                                Click="btnRestore_Click" />
+                        <Button x:Name="btnMaximize" Content="&#xE739;" ToolTip="Maximize"
+                                Style="{StaticResource WindowControlButtonStyle}"
+                                Click="btnMaximize_Click" />
+                        <Button x:Name="btnClose" Content="&#xE106;" ToolTip="Close"
+                                Style="{StaticResource WindowCloseButtonStyle}"
+                                Click="btnClose_Click" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+
+            <!--
+            -
+            -   Menu Side Panel
+            -
+            -->
+            <Border Grid.Row="1" BorderBrush="DarkGray" BorderThickness="1" Height="auto">
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Name="ToolsPanel" Orientation="Vertical" VerticalAlignment="Top" Width="auto">
+                        <Button Name="btnCapturePreview" Content="/Resources/preview.png" Tag="CapturePreview"
+                                Style="{StaticResource MenuSidePanelButtonStyle}" IsDefault="{Binding PanelCaptureSelected}"
+                                Click="btnCapturePreview_Click" />
+                        <Button Name="btnTASDesigner" Content="/Resources/designer.png" Tag="TAS Designer" 
+                                Style="{StaticResource MenuSidePanelButtonStyle}" IsDefault="{Binding PanelTASDesignerSelected}"
+                                Click="btnTASDesigner_Click"
+                                IsEnabled="False" />
+                        <Button Name="btnTASRecorder" Content="/Resources/recorder.png" Tag="TAS Recorder"
+                                Style="{StaticResource MenuSidePanelButtonStyle}" IsDefault="{Binding PanelTASRecorderSelected}"
+                                Click="btnTASRecorder_Click"
+                                IsEnabled="False" />
+                        <Button Name="btnMK8DX" Content="/Resources/mk8dx.png" Tag="Mario Kart 8 DX"
+                                Style="{StaticResource MenuSidePanelButtonStyle}" IsDefault="{Binding PanelMK8DXSelected}"
+                                Click="btnMK8DX_Click" />
+                        <Button Name="btnPokemonSwSh" Content="/Resources/pokemon.png" Tag="Pokémon SwSh"
+                                Style="{StaticResource MenuSidePanelButtonStyle}" IsDefault="{Binding PanelPokemonSwShSelected}"
+                                Click="btnPokemonSwSh_Click" 
+                                IsEnabled="False" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="0" Name="SettingsPanel" Orientation="Vertical" VerticalAlignment="Bottom" Width="auto">
+                        <Button Name="btnSettings" Content="/Resources/settings.png" Tag="Settings"
+                                Style="{StaticResource MenuSidePanelButtonStyle}" IsDefault="{Binding PanelSettingsSelected}"
+                                Click="btnSettings_Click" 
+                                IsEnabled="False" />
+                    </StackPanel>
+
+                    <GridSplitter Grid.Column="1" Width="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="DarkGray" />
+
+                    <Grid Name="ContentGrid" Grid.Column="2" Grid.ColumnSpan="3" >
+                        <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Right side</TextBlock>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
 </Window>

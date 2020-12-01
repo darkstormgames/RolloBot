@@ -9,5 +9,6 @@ namespace RolloBot.Client.Communication.Serial
     public interface ISerialOwner
     {
         SerialCommunication SerialCommunication { get; }
+        bool IsSerialEnabled { get; set; }
     }
 }

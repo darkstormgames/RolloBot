@@ -15,6 +15,9 @@ namespace RolloBot.Client.Communication.Serial
         public PinState State { get; private set; }
         public short Value { get; private set; }
 
+        /// <summary>
+        /// Empty Command (usually a delay)
+        /// </summary>
         public Command()
         {
             isDigitalPin = false;
@@ -24,6 +27,11 @@ namespace RolloBot.Client.Communication.Serial
             Value = -1;
         }
 
+        /// <summary>
+        /// Command for digital pins/controller buttons
+        /// </summary>
+        /// <param name="pin"></param>
+        /// <param name="state"></param>
         public Command(Pins pin, PinState state)
         {
             isDigitalPin = true;
@@ -34,7 +42,11 @@ namespace RolloBot.Client.Communication.Serial
             Value = -1;
         }
 
-
+        /// <summary>
+        /// Command for joysticks
+        /// </summary>
+        /// <param name="pin"></param>
+        /// <param name="value"></param>
         public Command(Pins pin, short value)
         {
             isDigitalPin = false;

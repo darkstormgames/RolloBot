@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,5 @@ namespace RolloBot.Client.Communication
 {
     public interface ICommunicationsOwner : ICaptureOwner, ISerialOwner, IXInputOwner
     {
-        bool IsPreviewPaused { get; set; }
     }
 }

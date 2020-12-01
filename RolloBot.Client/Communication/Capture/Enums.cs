@@ -22,4 +22,13 @@ namespace RolloBot.Client.Communication.Capture
         _2,
         _1
     }
+
+    public enum CaptureState
+    {
+        Stopped = 0,
+        Running = 1,
+        Paused = 2,
+
+        None = 99
+    }
 }

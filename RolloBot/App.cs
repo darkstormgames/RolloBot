@@ -18,6 +18,8 @@ namespace RolloBot
         [STAThread]
         public static void Main()
         {
+            AppDomain.CurrentDomain.SetupInformation.PrivateBinPathProbe = @".\bin";
+
             App application = new App();
             MainWindow mainWindow = new MainWindow();
             application.Run(mainWindow);

@@ -13,7 +13,7 @@ namespace RolloBot.Client.Communication.Capture
 
         public CaptureFrameEventArgs(Bitmap image)
         {
-            this.Frame = (Bitmap)image.Clone();
+            this.Frame = image;
         }
     }
 }

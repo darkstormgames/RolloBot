@@ -42,6 +42,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>C:\Users\Timo\AppData\Local\darkstormgames\RolloBot\</OutputPath>
@@ -75,6 +76,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -87,23 +89,28 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
-    </Reference>
     <Reference Include="Xceed.Wpf.Toolkit, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command.cs" />
+    <Compile Include="Helper\BoolToUriConverters.cs" />
+    <Compile Include="Helper\CaptureStateToImageUriConverter.cs" />
+    <Compile Include="Helper\StringToImageSourceConverter.cs" />
+    <Compile Include="ViewModel\CapturePreviewViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ModuleViewModelBase.cs" />
+    <Compile Include="ViewModel\PreviewViewModel.cs" />
+    <Compile Include="View\CapturePreviewView.xaml.cs">
+      <DependentUpon>CapturePreviewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TabContainerView.xaml.cs">
+      <DependentUpon>TabContainerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tool\ToolPanelBase.xaml.cs">
+      <DependentUpon>ToolPanelBase.xaml</DependentUpon>
+    </Compile>
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -121,7 +128,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Main\MainView.xaml">
+    <Page Include="Styles\MenuSidePanelDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TitleBarDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CapturePreviewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Main\MainViewOld.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,14 +155,21 @@
     <Compile Include="Controls\RoundButton.xaml.cs">
       <DependentUpon>RoundButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\Main\MainViewViewModel.cs" />
-    <Compile Include="View\Main\MainView.xaml.cs">
-      <DependentUpon>MainView.xaml</DependentUpon>
+    <Compile Include="View\Main\MainViewOld.xaml.cs">
+      <DependentUpon>MainViewOld.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\TabContainerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Tool\ToolPanelBase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -180,10 +206,6 @@
       <Project>{40ecae8c-a150-4639-ab3c-5a8765de91e1}</Project>
       <Name>RolloBot.Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RolloBot.Tools\RolloBot.Tools.csproj">
-      <Project>{c2f3152f-b545-4ff3-8fed-60cfd243cba9}</Project>
-      <Name>RolloBot.Tools</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -191,6 +213,52 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\preview_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\preview_enabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\preview_paused.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\controller_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\controller_enabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\serial_enabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\serial_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\designer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\recorder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\pokemon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\mk8dx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\resize_left.png" />
+    <Resource Include="Resources\resize_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\resourcenotfound.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RolloBot", "RolloBot\RolloB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RolloBot.Client", "RolloBot.Client\RolloBot.Client.csproj", "{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RolloBot.Tools", "RolloBot.Tools\RolloBot.Tools.csproj", "{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,14 +31,6 @@ Global
 		{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}.Release|x64.ActiveCfg = Release|x64
 		{40ECAE8C-A150-4639-AB3C-5A8765DE91E1}.Release|x64.Build.0 = Release|x64
-		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Debug|x64.ActiveCfg = Debug|x64
-		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Debug|x64.Build.0 = Debug|x64
-		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Release|x64.ActiveCfg = Release|x64
-		{C2F3152F-B545-4FF3-8FED-60CFD243CBA9}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
